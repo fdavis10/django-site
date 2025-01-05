@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+
+    {% comment %} bootstrap {% endcomment %}
+    <link rel="stylesheet" href="{% static 'bootstrap\css\bootstrap.min.css' %}">
+
+    {% comment %} css {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css\base.css' %}">
+</head>
+<body>
+    <header class="header sticky-top">
+        <div class="header-container d-flex">
+            <navbar class="header-nav pt-4">
+                <ul class="header-list d-flex">
+                    <li>
+                        <a href="/" class = "nav-a m-3">ГЛАВНОЕ МЕНЮ</a>
+                    </li>
+                    <li>
+                        <a href="#" class = "nav-a m-3">МАГАЗИН</a>
+                    </li>
+                </ul>
+            </navbar>
+            <div class="header-logo">
+                <a href="/"><img src="{% static 'img/qweqwe.png' %}" alt="" class="shop-logo"></a>
+            </div>
+            <div class="header-profile">
+                <a href="#" class="m-3">АВТОРИЗОВАТЬСЯ</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <img src="{% static 'img/frame1' %}" class = 'frame1' alt="">
+    <img src="{% static 'img/frame2' %}" class = 'frame2' alt="">
+    <img src="{% static 'img/frame3' %}" class = 'frame3' alt="">
+    <img src="{% static 'img/frame4' %}" class = 'frame4' alt="">
+
+
+    {% comment %} JS for bootstrap {% endcomment %}
+    <script src="{% static 'bootstrap\js\bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
