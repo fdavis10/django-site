@@ -3,7 +3,7 @@ from .models import Order, OrderItem
 
 class OrderItemInInline(admin.TabularInline):
     model = OrderItem
-    raw_id_field = ['product']
+    raw_id_fields = ['product']
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):

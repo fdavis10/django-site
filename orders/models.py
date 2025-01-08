@@ -1,5 +1,4 @@
 from django.db import models
-from django.db import models
 from main.models import Products
 from users.models import User
 

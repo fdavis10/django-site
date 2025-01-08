@@ -32,7 +32,7 @@
                 <a href="{% url 'cart:cart_detail' %}">
                     <img src={% static 'img/cart.png' %} class="cart-img" alt="">
                 </a>
-                <a href="#" class="m-2">АВТОРИЗОВАТЬСЯ</a>
+                <a href="{% url "users:login" %}" class="m-2">АВТОРИЗОВАТЬСЯ</a>
                 <p class="cart-quantity">
                     {% with cart_quantity=cart|length %}
                         {% if cart_quantity > 0 %}

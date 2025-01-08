@@ -1,45 +1,58 @@
 {% extends 'main/base.html' %}
 {% load static %}
+
 {% block title %}Создание заказа{% endblock title %}
-{% block content %}'
+
+{% block content %}
     <div class="forcreate">
         <div class="profile bg-white p-4 mb-4 mx-2">
-            <h2 class="mb-2">Создание заказа</h2>
-            <form action="" class="order-form" method='pist'>
+            <h2 class="mb-2">Оформление заказа</h2>
+            <form action="" method="post" class="order-form">
                 {% csrf_token %}
                 <div class="col-md-12 mb-3">
                     <label for="id_first_name" class="form-label">Имя</label>
-                    <input type="text" class="form-control from-styleprofile" name="first_name" placeholder="Ваше Имя" value ="{{form.first_name.value|default:''}}" required id="id_first_name">
+                    <input type="text" class="form-control form-styleprofile" id="id_first_name"
+                    name="first_name" placeholder="Ваше Имя" value="{{ form.first_name.value|default:'' }}" required>
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="id_last_name" class="form-label">Фамилия</label>
-                    <input type="text" class="form-control from-styleprofile" name="last_name" placeholder="Ваша Фамилия" value ="{{form.last_name.value|default:''}}" required id="id_last_name">
+                    <input type="text" class="form-control form-styleprofile" id="id_last_name"
+                    name="last_name" placeholder="Ваша Фамилия" value="{{ form.last_name.value|default:'' }}" required>
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="id_email" class="form-label">Электронная почта</label>
-                    <input type="text" class="form-control from-styleprofile" name="email" placeholder="Электронная почта" value ="{{form.email.value|default:''}}" required id="id_email">
+                    <input type="text" class="form-control form-styleprofile" id="id_email"
+                    name="email" placeholder="Ваша Электронная почта" value="{{ form.email.value|default:'' }}" required>
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <label for="id_address" class="form-label">Адрес</label>
+                    <input type="text" class="form-control form-styleprofile" id="id_address"
+                    name="address" placeholder="Ваш Адрес" value="{{ form.address.value|default:'' }}" required>
                 </div>
                 <div class="col-md-12 mb-3">
-                    <label for="id_postal_code" class="form-label">Индекс</label>
-                    <input type="text" class="form-control from-styleprofile" name="postal_code" placeholder="Индекс" value ="{{form.postal_code.value|default:''}}" required id="id_postal_code">
+                    <label for="id_postal_code" class="form-label">Почтовый индекс</label>
+                    <input type="text" class="form-control form-styleprofile" id="id_postal_code"
+                    name="postal_code" placeholder="Ваш Почтовый индекс" value="{{ form.postal_code.value|default:'' }}" required>
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="id_city" class="form-label">Город</label>
-                    <input type="text" class="form-control from-styleprofile" name="city" placeholder="Город" value ="{{form.city.value|default:''}}" required id="id_city">
+                    <input type="text" class="form-control form-styleprofile" id="id_city"
+                    name="city" placeholder="Ваш город" value="{{ form.city.value|default:'' }}" required>
                 </div>
-                <p><input type="submit" values='Оформить заказ'></p>
+                <p><input type="submit" value="Оформить заказ"></p>
                 {% csrf_token %}
             </form>
         </div>
         <div class="checkout">
-            <h1>Проверка</h1>
+            <h1>Содержимое заказа</h1>
             <div class="order-info">
-                {% for item in cart  %}
+                {% for item in cart %}
                     <li>
-                        {{item.quantity}} x {{item.product.name}}
-                        <p>{{item.total_price}}</p>
+                        {{ item.quantity }}x {{ item.product.name }}
+                        <p> {{ item.total_price }}</p>
                     </li>
-                    <p>Общая сумма: {{cart.get_total_price}}</p>
+                    <p>Общая сумма: {{ cart.get_total_price }}</p>
                 {% endfor %}
             </div>
         </div>
