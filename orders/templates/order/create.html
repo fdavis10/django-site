@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Создание заказа{% endblock title %}
+{% block content %}'
+    <div class="forcreate">
+        <div class="profile bg-white p-4 mb-4 mx-2">
+            <h2 class="mb-2">Создание заказа</h2>
+            <form action="" class="order-form" method='pist'>
+                {% csrf_token %}
+                <div class="col-md-12 mb-3">
+                    <label for="id_first_name" class="form-label">Имя</label>
+                    <input type="text" class="form-control from-styleprofile" name="first_name" placeholder="Ваше Имя" value ="{{form.first_name.value|default:''}}" required id="id_first_name">
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="id_last_name" class="form-label">Фамилия</label>
+                    <input type="text" class="form-control from-styleprofile" name="last_name" placeholder="Ваша Фамилия" value ="{{form.last_name.value|default:''}}" required id="id_last_name">
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="id_email" class="form-label">Электронная почта</label>
+                    <input type="text" class="form-control from-styleprofile" name="email" placeholder="Электронная почта" value ="{{form.email.value|default:''}}" required id="id_email">
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="id_postal_code" class="form-label">Индекс</label>
+                    <input type="text" class="form-control from-styleprofile" name="postal_code" placeholder="Индекс" value ="{{form.postal_code.value|default:''}}" required id="id_postal_code">
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="id_city" class="form-label">Город</label>
+                    <input type="text" class="form-control from-styleprofile" name="city" placeholder="Город" value ="{{form.city.value|default:''}}" required id="id_city">
+                </div>
+                <p><input type="submit" values='Оформить заказ'></p>
+                {% csrf_token %}
+            </form>
+        </div>
+        <div class="checkout">
+            <h1>Проверка</h1>
+            <div class="order-info">
+                {% for item in cart  %}
+                    <li>
+                        {{item.quantity}} x {{item.product.name}}
+                        <p>{{item.total_price}}</p>
+                    </li>
+                    <p>Общая сумма: {{cart.get_total_price}}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
