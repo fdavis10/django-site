@@ -119,7 +119,8 @@ h5{
 .price{
     font-size: 20px;
     font-weight: 700;
-    margin-top: -10px;
+    margin-top: auto;
+    margin-left: 10px;
 }
 
 .home_button{
@@ -291,9 +292,10 @@ h5{
     max-height: 50vh;
     width: 600px;
     overflow-y: auto;
+    border: black;
 }
 
-.card-card{
+.cart-card{
     display: flex;
     gap: 15px;
     justify-content: center;
@@ -307,20 +309,20 @@ h5{
 }
 
 .cart_image{
-    width: 25px;
-    height: 25px;
-    border: 1px solid #00000042;
+    width: 100px;
+    height: 100px;
 }
 
-.cart-card-img{
-    width: 25px;
-    height: 25px;
-    border: 1px solid #00000042;
-}
+
 
 .cart-card-name{
     width: 180px;
+    margin-left: 100px;
 
+}
+
+.cart-card-q{
+    margin-left: 100px;
 }
 
 .remove_button{
